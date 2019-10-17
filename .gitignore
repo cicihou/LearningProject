@@ -1,0 +1,9 @@
+migrations
+*.pyc
+.python-version
+.vscode/
+.cache
+*.pid
+.idea
+.DS_Store
+/script
