@@ -28,7 +28,7 @@ Show the institution and subject where the score is at least 100 for question 15
 
 SELECT institution, subject
   FROM nss
- WHERE question='Q15' and score >= 100
+ WHERE question='Q15' AND score >= 100
 '''
 
 
@@ -53,9 +53,10 @@ You will need to use SUM over the response column and GROUP BY subject
 
 
 SELECT subject,SUM(response)
-  FROM nss
- WHERE question='Q22'
-   AND subject in ('(8) Computer Science', '(H) Creative Arts and Design') group by subject
+FROM nss
+WHERE question='Q22'
+   AND subject IN ('(8) Computer Science', '(H) Creative Arts and Design') 
+GROUP BY subject
 '''
 
 
@@ -70,8 +71,8 @@ The A_STRONGLY_AGREE column is a percentage. To work out the total number of stu
 SELECT subject,SUM(RESPONSE* A_STRONGLY_AGREE)/100
   FROM nss
  WHERE question='Q22'
-   AND subject in ('(8) Computer Science', '(H) Creative Arts and Design')
-   group by subject
+   AND subject IN ('(8) Computer Science', '(H) Creative Arts and Design')
+   GROUP BY subject
 '''
 
 
@@ -85,8 +86,8 @@ Use the ROUND function to show the percentage without decimal places.
 SELECT subject,ROUND(SUM(response* A_STRONGLY_AGREE)/SUM(response))
   FROM nss
  WHERE question='Q22'
-   AND (subject='(8) Computer Science' or subject='(H) Creative Arts and Design')
-group by subject
+   AND (subject='(8) Computer Science' OR subject='(H) Creative Arts and Design')
+GROUP BY subject
 '''
 
 
@@ -97,11 +98,11 @@ Show the average scores for question 'Q22' for each institution that include 'Ma
 The column score is a percentage - you must use the method outlined above to multiply the percentage by the response and divide by the total response. Give your answer rounded to the nearest whole number.
 
 
-SELECT institution, round(sum(score*response)/sum(response))
+SELECT institution, ROUND(SUM(score*response)/SUM(response))
   FROM nss
  WHERE question='Q22'
    AND (institution LIKE '%Manchester%')
-group by institution
+GROUP BY institution
 ORDER BY institution
 '''
 
@@ -112,10 +113,10 @@ Show the institution, the total sample size and the number of computing students
 
 
 SELECT institution,
-sum(sample), 
+SUM(sample), 
  SUM (CASE WHEN subject = '(8) Computer Science' THEN sample ELSE 0 END) AS CS_students
   FROM nss
  WHERE question='Q01'
    AND (institution LIKE '%Manchester%')
-group by institution
+GROUP BY institution
 '''

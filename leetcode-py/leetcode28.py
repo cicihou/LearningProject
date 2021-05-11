@@ -1,10 +1,16 @@
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        # the first-two-IF-condition is to decrease time when boundary condition
-        if len(needle) == 0:
+        if not needle and not haystack:
             return 0
-        if len(haystack) == 0:
+        if needle in haystack:
+            return haystack.index(needle)
+        else:
             return -1
-        if needle not in haystack:
-            return -1
-        return haystack.index(needle)
+
+'''
+注意空字符串会判定成存在于任意字符串
+>>> "" in "a"
+True
+>>> "a".index("")
+0
+'''
