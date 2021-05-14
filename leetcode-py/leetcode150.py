@@ -19,7 +19,7 @@ class Solution:
                 right, left = tmp.pop(), tmp.pop()
                 tmp.append(int(ops[i](left, right)))
 
-        return tmp
+        return tmp[0]
 
 
 s = Solution()
