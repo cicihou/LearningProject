@@ -9,6 +9,14 @@ class MyQueue:
     def push(self, x: int) -> None:
         """
         Push element x to the back of queue.
+
+        如果用栈的思想来做，栈在 push 不能保证先入先出的
+        每一次要用一个help_stack 实现栈的翻转
+        while self.stack:
+            self.help_stack.append(self.stack.pop())
+        self.help_stack.append(x)
+        while self.help_stack:
+            self.stack.append(self.help_stack.pop())
         """
         self.item.append(x)
 
