@@ -7,3 +7,4 @@ migrations
 .idea
 .DS_Store
 /script
+/draft
