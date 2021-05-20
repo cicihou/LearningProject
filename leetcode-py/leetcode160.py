@@ -19,19 +19,34 @@ class Solution:
         如果没有相交，
         相当于遍历了两个链表
         '''
+        # if not headA or not headB:
+        #     return
+        #
+        # pa = headA
+        # pb = headB
+        #
+        # while pa != pb:
+        #     if pa:
+        #         pa = pa.next
+        #     else:
+        #         pa = headB
+        #     if pb:
+        #         pb = pb.next
+        #     else:
+        #         pb = headA
+        # return pa
+
+
+        ''' method 2 hash '''
         if not headA or not headB:
             return
 
-        pa = headA
-        pb = headB
-
-        while pa != pb:
-            if pa:
-                pa = pa.next
+        dic = {}
+        while headA:
+            dic[headA] = None
+            headA = headA.next
+        while headB:
+            if headB in dic:
+                return headB
             else:
-                pa = headB
-            if pb:
-                pb = pb.next
-            else:
-                pb = headA
-        return pa
+                headB = headB.next
