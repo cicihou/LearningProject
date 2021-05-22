@@ -6,12 +6,15 @@ class ListNode:
 
 
 '''
+method 1
+
 这道题指针操作比较复杂，最主要是使用了三个中间变量，head, start, tail
 head 记录需反转列表的第一个节点
 start 记录需反转列表的上一个节点
-tail 记录需反转列表的下一个节点（或者说是，下一个需反转列表的上一个节点，i.e. 下一次循环的 start）
+tail 记录需反转列表的下一个节点（或者说是，下一个需反转列表的第一个节点，i.e. 下一次循环的 start）
 
 https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/k-ge-yi-zu-fan-zhuan-lian-biao-by-leetcode-solutio/
+https://leetcode.com/problems/reverse-nodes-in-k-group/discuss/172576/Python-or-Follow-up-of-LC206
 
 有点难理解，多画画图吧
 '''
@@ -50,3 +53,11 @@ class Solution:
             pre = cur
             cur = next
         return tail, head
+
+
+'''
+method 2 递归 recursion
+https://leetcode.com/problems/reverse-nodes-in-k-group/discuss/11653/Python-recursive-and-iterative-solutions-with-comments.
+'''
+
+# TODO
