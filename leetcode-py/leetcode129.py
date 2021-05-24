@@ -23,7 +23,9 @@ class Solution(object):
                 self.res += value*10 +root.val
 
         '''method2
-        思想都是累加，当一个节点为叶子节点的时候，res+= value。非叶子节点的时候，不断向下找叶子节点
+        BFS solution
+        思想都是累加，当一个节点为叶子节点的时候，res+= value。
+        非叶子节点的时候，不断向下找叶子节点
         '''
         # if not root:
         #     return 0
