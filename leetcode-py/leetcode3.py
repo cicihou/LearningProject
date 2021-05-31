@@ -35,6 +35,11 @@ class Solution(object):
             used[c] = i
         return max_length
 
+        ''' method 3 sliding window
+        https://leetcode.com/problems/longest-substring-without-repeating-characters/discuss/347818/Python3%3A-sliding-window-O(N)-with-explanation
+        '''
+        # TODO
+
 
 s = Solution()
 print(s.lengthOfLongestSubstring("abcabcbb"))
