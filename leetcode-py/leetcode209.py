@@ -4,7 +4,7 @@ class Solution:
         这里不能排序，因为其求的是最小的 subarray ，要求要按其原顺序
         method 1 two pointer
         '''
-        count = float('inf')
+        count = len(nums) + 1  # give an impossible initial value
         s = 0
         left = 0
         for i in range(len(nums)):
@@ -18,13 +18,18 @@ class Solution:
                 s -= nums[left]
                 left += 1
 
-        return count if count != float('inf') else 0
+        return count if count != len(nums) + 1 else 0
+
+        ''' method 2
+        binary search
+        '''
+        # TODO
 
 
 s = Solution()
 
-# s.minSubArrayLen(7, [2,3,1,2,4,3])
-# s.minSubArrayLen(4, [1,4,4])
-# s.minSubArrayLen(11, [1,1,1,1,1,1,1,1])
-# s.minSubArrayLen(11, [1,2,3,4,5])
-print(s.minSubArrayLen(213, [12, 28, 83, 4, 25, 26, 25, 2, 25, 25, 25, 12]))
+s.minSubArrayLen(7, [2,3,1,2,4,3])
+s.minSubArrayLen(4, [1,4,4])
+s.minSubArrayLen(11, [1,1,1,1,1,1,1,1])
+s.minSubArrayLen(11, [1,2,3,4,5])
+s.minSubArrayLen(213, [12, 28, 83, 4, 25, 26, 25, 2, 25, 25, 25, 12])
