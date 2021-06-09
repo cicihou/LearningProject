@@ -12,6 +12,25 @@ class Solution(object):
             return True
         return False
 
+        '''
+        binary search: 跟 74 题 思路完全一致
+        '''
+        m = len(matrix)
+        n = len(matrix[0])
+
+        x = m - 1
+        y = 0
+
+        while x >= 0 and y < n:
+            if matrix[x][y] > target:
+                x -= 1
+            elif matrix[x][y] < target:
+                y += 1
+            else:
+                return True
+        return False
+
+
 s = Solution()
 print(s.searchMatrix([
     [1, 4, 7, 11, 15],
