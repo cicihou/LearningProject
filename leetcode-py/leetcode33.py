@@ -27,7 +27,7 @@ class Solution:
             # the first half is ordered
             if nums[l] <= nums[mid]:
                 # target is in the first half
-                if nums[l] <= target < nums[right]:
+                if nums[l] <= target < nums[mid]:
                     r = mid - 1
                 else:
                     l = mid + 1
