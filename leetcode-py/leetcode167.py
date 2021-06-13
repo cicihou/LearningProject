@@ -10,6 +10,7 @@ class Solution:
             else:
                 dic[target - numbers[i]] = i + 1
 
+
         '''
         two pointer
         '''
@@ -21,3 +22,13 @@ class Solution:
             else:
                 l += 1
         return [l+1, r+1]
+
+
+        '''
+        binary search
+        time O(nlogn)
+        遍历数组，target - 当前遍历的值，就是需要寻找的值
+        用二分在当前数组的右侧寻找另一个满足条件的值
+        
+        二分 在本题 并不是优解
+        '''

@@ -6,7 +6,12 @@ class Solution(object):
         :rtype: str
         """
 
-        '''method 1'''
+        '''method 1 
+        Disgusting and ugly to state the edge case. 
+        In this solution, it ignores the str is ordered
+        
+        I write it in 2019.5 and I will not delete it for reminding me, dont write smelly code. It's hard to make it out now, even for myself.
+        '''
         # for i, letter in enumerate(letters):
         #     if ord(target) > ord(letter) and ord(target) < ord(letters[i+1]):
         #         return letters[i+1]
@@ -18,20 +23,27 @@ class Solution(object):
         #         return letters[i+1]
         #     elif ord(target) <= ord(letters[0]) or ord(target) > ord(letters[len(letters)-1]):
         #         return letters[0]
-        #     else:
-        #         continue
 
-        '''method2'''
-        # for i in letters:
-        #     if i>target:
-        #         return i
-        # return letters[0]
 
-        '''method3'''
+        '''method2 linear compare'''
+
         for i in letters:
-            if ord(i)>ord(target):
+            if i>target:
                 return i
         return letters[0]
+
+
+        '''method3 binary search'''
+
+        l = 0
+        r = len(letters) - 1
+        while l <= r:
+            mid = (l + r) // 2
+            if letters[mid] <= target:
+                l = mid + 1
+            else:
+                r = mid - 1
+        return letters[l % len(letters)]
 
 
 letters = ["c", "f", "j"]
@@ -43,4 +55,3 @@ print(solution.nextGreatestLetter(letters, "g"), "j")
 print(solution.nextGreatestLetter(letters, "j"), "c")
 print(solution.nextGreatestLetter(letters, "k"), "c")
 print(solution.nextGreatestLetter(["e","e","e","e","e","e","n","n","n","n"], "e"), "n")
-
