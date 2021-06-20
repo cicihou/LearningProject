@@ -4,6 +4,10 @@ class Solution:
         跟 200 的思路一样，只是需要注意如何在 dfs 中进行适当的返回
         :param grid:
         :return:
+
+        time: O(R*C)
+        space: O(R*C)
+        R 是行，C 是列
         '''
         def dfs(i, j):
             count = 0
