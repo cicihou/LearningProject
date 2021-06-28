@@ -59,6 +59,9 @@ class Solution:
             最终的答案即为 f(m-1,n-1)。
 
         为了方便代码编写，我们可以将所有的 f(0, j) 以及 f(i, 0) 都设置为边界条件，它们的值均为 1
+
+        Time O(m*n)
+        Space O(m*n)
         '''
         dp = [[0 for _ in range(n)] for _ in range(m)]
 
