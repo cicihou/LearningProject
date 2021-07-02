@@ -86,6 +86,7 @@ class Solution:
         if sum(range(maxChoosableInteger + 1)) < desiredTotal:
             return False
 
+        @lru_cache(None)
         def dp(picked, acc):
             if acc >= desiredTotal:
                 return False
