@@ -32,3 +32,11 @@ class Solution:
                     dp[i] = max(dp[i], dp[j]+1)
                     break
         return n - max(dp)
+
+        '''
+        method 3 贪心 greedy + 二分 binary search
+            https://leetcode-solution.cn/solutionDetail?type=3&id=58&max_id=2
+        time: O(nlogn)
+        space: O(n)
+        '''
+        # TODO
