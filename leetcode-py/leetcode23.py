@@ -66,3 +66,41 @@ class Solution:
                 if l:
                     dic.setdefault(l.val, []).append(l)
         return dummy.next
+
+
+        '''
+        method 3 归并排序
+        
+        跟 method1 的合并思想很类似，也是两两之间进行合并
+        '''
+        def divide(ls):
+            if not ls:
+                return None
+            n = len(ls)
+            if n == 1:
+                return ls[0]
+            mid = n // 2
+            return merge(divide(ls[:mid]), divide(ls[mid:]))
+
+        def merge(l1, l2):
+            if not l1:
+                return l2
+            if not l2:
+                return l1
+
+            dummy = ListNode()
+            cur = dummy
+
+            while l1 and l2:
+                if l1.val > l2.val:
+                    cur.next = l2
+                    l2 = l2.next
+                else:
+                    cur.next = l1
+                    l1 = l1.next
+                cur = cur.next
+            if l1 or l2:
+                cur.next = l1 or l2
+            return dummy.next
+
+        return divide(lists)
