@@ -11,6 +11,16 @@ class Solution(object):
 
         '''
         method 2
+        Time: O(n)
+        Intuitive Solution
+        '''
+        for i in range(1, len(nums)):
+            if not nums[i] > nums[i-1]:
+                return i-1
+        return len(nums) - 1
+
+        '''
+        method 3
         binary search
 
         time O(logN)
