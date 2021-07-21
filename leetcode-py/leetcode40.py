@@ -3,17 +3,17 @@ class Solution:
         '''
         根据 39 的 solution 2 改的，多加了一些剪枝的手段
 
-        也可参考，https://leetcode.com/problems/combination-sum-ii/solution/，去重和剪枝方式略有不同
+        也可参考，https://leetcode.com/problems/combination-sum-ii/solution/，去重和剪枝方式略有不同（通过比较 continue 了一次循环）
+
+        例如一个 candidates = [1,1,2,5]，target = 8，由于题目要求元素不能重复使用
+        虽然在 [c[0], c[2], c[3]] 和 [c[1], c[2], c[3]] 在我们看来是不同的组合，但其实反映在结果集中只对应一个答案
+        因此我们用 set[tuple[int]] 这个结构去重
         '''
         res = set()
         candidates.sort()
 
         def dfs(start, target, path):
             if target == 0:
-                # 例如一个 candidates = [1,1,2,5]，target = 8，由于题目要求元素不能重复使用
-                # 虽然在 [c[0], c[2], c[3]] 和 [c[1], c[2], c[3]] 在我们看来是不同的组合，但其实反映在结果集中只对应一个答案
-                # 因此我们用 set[tuple[int]] 这个结构去重
-                # 也可以参考一下 https://leetcode.com/problems/combination-sum-ii/solution/ 中的去重方式，是通过比较 continue 了一次循环
                 res.add(tuple(path))
                 return
             if sum(candidates[start:]) < target:
