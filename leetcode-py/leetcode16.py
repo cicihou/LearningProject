@@ -34,4 +34,3 @@ print(s.threeSumClosest([-1, 2, 1, -4], 1), 2)
 print(s.threeSumClosest([2, 2, 6, 8], 4), 10)
 print(s.threeSumClosest([-3, -2, -5, 3, -4], -1), -2)
 print(s.threeSumClosest([1,2,4,8,16,32,64,128], 82), 82)
-
