@@ -47,5 +47,50 @@ class Solution:
         
         https://www.youtube.com/watch?v=qQ8vS2btsxI
         https://www.youtube.com/watch?v=BQ9E-2umSWc
+        
+        time: 若 hash function 选的差，冲突多，则最坏是(NM)，一般情况是O(N+M)
+        space: O(1)
         '''
         # TODO
+
+        '''
+        method 4
+        KMP Algorithm 
+        https://leetcode-solution.cn/solutionDetail?type=3&id=76&max_id=2
+        
+        KMP：O(N+M)
+        KMP：O(M)
+        '''
+        if len(needle) == 0:
+            return 0
+        i = 0
+        j = 0
+
+        def kmp(pattern):
+            next = [0] * len(pattern)
+            j = 0
+            for i in range(1, len(pattern)):
+                if pattern[i] == pattern[j]:
+                    j += 1
+                    next[i] = j
+                else:
+                    while j > 0 and pattern[j] != pattern[i]:
+                        j = next[j-1]
+                    if pattern[i] == pattern[j]:
+                        j += 1
+                        next[i] = j
+            return next
+
+        nxt = kmp(needle)
+        while i < len(haystack) and j < len(needle):
+            if haystack[i] == needle[j]:
+                i += 1
+                j += 1
+            else:
+                if j > 0:
+                    j = nxt[j-1]
+                else:
+                    i += 1
+            if j == len(needle):
+                return i-j
+        return -1
