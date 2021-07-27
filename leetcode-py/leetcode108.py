@@ -11,7 +11,7 @@ class Solution:
         if not nums:
             return None
         mid = len(nums) // 2  # 这里直接用 len(nums) // 2 得到的是 median 了
-        root = nums[mid]
+        root = TreeNode(nums[mid])
         root.left = self.sortedArrayToBST(nums[:mid])
         root.right = self.sortedArrayToBST(nums[mid + 1:])
         return root
