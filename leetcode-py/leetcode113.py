@@ -15,6 +15,7 @@ class Solution:
         关于 time complexity 可参考：https://leetcode-cn.com/problems/path-sum-ii/solution/lu-jing-zong-he-ii-by-leetcode-solution/
 
         注意这道题是求 根节点到叶子结点的路径之和，当还未到达叶子节点的时候，即时得到了符合条件的 TargetSUM 也不能作为答案
+        backtrack 中不需要判断 target 的大小，我们最终判断的是根到叶子结点的距离是否符合 targetSum
         回溯剪枝需要格外小心，提前return 可能会扰乱状态空间
         '''
 

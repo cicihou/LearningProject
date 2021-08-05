@@ -6,13 +6,30 @@ good video：https://www.youtube.com/watch?v=5o-kdjv7FD0
 class Solution:
     def climbStairs(self, n: int) -> int:
         '''
-        TLE 直接递归
+        method 1 TLE 直接递归
         '''
         if n in [0, 1]:
             return 1
         return self.climbStairs(n-1) + self.climbStairs(n-2)
 
         '''
+        method 2 recursion + memoization
+        '''
+        memo = {}
+
+        def func(n):
+            if n in memo:
+                return memo[n]
+            if n <= 2:
+                res = n
+            else:
+                res = func(n-1) + func(n-2)
+            memo[n] = res
+            return res
+        return func(n)
+
+        '''
+        method 3
         问题近似于 Fibonacci(lc 509, Fibonacci Number)，但如果直接递归会 TLE
         必须用一些类似 memoize 的手段
         '''
