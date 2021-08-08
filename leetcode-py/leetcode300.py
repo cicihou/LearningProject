@@ -20,3 +20,14 @@ class Solution:
                 left += 1
             left = 0
         return max(dp)
+
+        '''
+        method 2
+        binary search 优化 + DP
+        
+        time: O(nlogn)
+        space: O(n)
+        
+        https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/
+        '''
+        # TODO
