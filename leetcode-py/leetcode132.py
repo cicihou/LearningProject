@@ -6,7 +6,7 @@ class Solution:
 
         代码：https://leetcode-cn.com/problems/palindrome-partitioning-ii/solution/fen-ge-hui-wen-chuan-ii-by-leetcode-solu-norx/
 
-        dp[i][j] 表示 以 s以i开头以j结尾时(s[i:j+1]) 是否为回文
+        dp[i][j] 表示 以 s以i开头以j结尾时(s[i:j+1]) 是否为回文（这个函数可以在 n**2 内判断 s 中是否为惠文字符串）
 
         time: O(n^2)
         space: O(n^2)

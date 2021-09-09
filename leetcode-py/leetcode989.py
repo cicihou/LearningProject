@@ -3,9 +3,14 @@ class Solution:
         # method 1 list iteration
         # return [int(j) for j in str(int(''.join([str(i) for i in num])) + k)]
 
-        # method 2, same as method 1, use for-loop explicitly to analyze the complexity
-        # as following, the time complexity is O(n)
-        # the space complexity is O(1)
+        '''
+        method 2, same as method 1, use for-loop explicitly to analyze the complexity
+        as following, the time complexity is O(n)
+        the space complexity is O(1)
+
+        time: O(n)
+        space: O(n)
+        '''
         res = []
         for i in num:
             res.append(str(i))
