@@ -17,7 +17,10 @@ class Solution:
         # return [list(r) for r in res]
 
 
-        ''' method 2 hash, from 2-sum solution'''
+        ''' method 2 hash, from 2-sum solution
+        time: O(n^2)
+        space: O(n)
+        '''
         if len(nums) <= 2:
             return
         res = set()
