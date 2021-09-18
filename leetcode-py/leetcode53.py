@@ -29,3 +29,13 @@ class Solution:
             cur = max(nums[i], cur+nums[i])
             ans = max(ans, cur)
         return ans
+
+        '''
+        method 3 一个非常简单的纯逻辑算法
+        当 nums[i-1] > 0，前面的连续子数组为正数
+        此时 nums[i] 带上前面的子数组就会更大，那就带上
+        '''
+        for i in range(1, len(nums)):
+            if nums[i-1] > 0:
+                nums[i] += nums[i-1]
+        return max(nums)
