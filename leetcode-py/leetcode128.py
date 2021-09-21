@@ -1,23 +1,45 @@
 class Solution(object):
     def longestConsecutive(self, nums):
         """
-        :type nums: List[int]
-        :rtype: int
+        method 1
+
+        time: O(nlogn)， sort
+        space: O(1)
         """
         if not nums:
             return 0
-        nums.sort()
-        res_count = 1
-        count = 1
+        res = tmp = 1
+        nums = sorted(set(nums))
         for i in range(1, len(nums)):
             if nums[i] - nums[i-1] == 1:
-                count += 1
-            elif nums[i] - nums[i-1] == 0:
-                continue
+                tmp += 1
+                res = max(res, tmp)
             else:
-                count = 1
-            res_count = max(res_count, count)
-        return res_count
+                tmp = 1
+        return res
+
+        '''
+        method 2
+        
+        time: O(n)
+        space: O(n)
+        
+        理论上说用 hash 是更节约时间复杂度了，不过两种算法的核心其实差不多
+        '''
+        if len(nums) == 0:
+            return 0
+        cache = {num:None for num in nums}
+        res = tmp = 1
+        last = None
+        for k in sorted(cache):
+            if last is not None:
+                if k - last == 1:
+                    tmp += 1
+                    res = max(res, tmp)
+                else:
+                    tmp = 1
+            last = k
+        return res
 
 
 s = Solution()

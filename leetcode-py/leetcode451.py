@@ -8,3 +8,13 @@ class Solution:
         for k, v in hashmap:
             res += k * v
         return res
+
+        '''
+        to make it simple
+        '''
+        counter = Counter(s)
+        cache = sorted([(-v, k) for k, v in counter.items()])
+        res = ''
+        for count, key in cache:
+            res +=  -count * key
+        return res

@@ -8,6 +8,13 @@ class TreeNode:
 
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
+        '''
+        time: O(n)
+        space: O(h) for recursion stack
+
+        :param root:
+        :return:
+        '''
         if not root:
             return 0
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))

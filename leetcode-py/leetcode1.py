@@ -28,6 +28,16 @@ class Solution:
         method 3 two-pointer
         https://leetcode.com/problems/two-sum/discuss/662/Python-dictionary-and-two-pointer-solutions.
         '''
+        nums = sorted(enumerate(nums), key=lambda x: x[1])
+        l, r = 0, len(nums)-1
+        while l < r:
+            cur = nums[l][1] + nums[r][1]
+            if cur == target:
+                return [nums[l][0], nums[l][0]]
+            elif cur > target:
+                r -= 1
+            elif cur < target:
+                l += 1
 
 
 s = Solution()
