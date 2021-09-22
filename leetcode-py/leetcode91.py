@@ -15,6 +15,9 @@ class Solution:
             res = func(length - 1) + func(length - 2)
             注意 length - 2 需要判断有效性
 
+        time: O(n)
+        space: O(n)
+
         视频：https://www.youtube.com/watch?v=qli-JCrSwuk
         :param s:
         :return:

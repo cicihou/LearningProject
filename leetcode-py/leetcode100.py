@@ -10,18 +10,25 @@ class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
         '''
         method 1 recursion
+        time: O(N)
+        space: O(logN)
+
+        注意先判断 not p and not q 这个比较狭窄的条件，再判断 False 对应的比较宽的条件
         '''
-        # if not p and not q:
-        #     return True
-        # if not p or not q:
-        #     return False
-        # if p.val != q.val:
-        #     return False
-        # return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        if not p and not q:
+            return True
+        if not p or not q:
+            return False
+        if p.val != q.val:
+            return False
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
         '''
         method 2 iteration + queue
+        
+        time: O(N)
+        space: O(logN)
         '''
         def same(p, q):
             if not p and not q:
