@@ -8,51 +8,40 @@
 class Solution(object):
     def sumNumbers(self, root):
         '''method1
-        递归，用每一个高位的数乘10，再和下一层的节点相加，每次都计算左右。结果累加
-        dfs
-        '''
-        self.res = 0
-        self.dfs(root, 0)
-        return self.res
+        dfs，用每一个高位的数乘10，再和下一层的节点相加，每次都计算左右。结果累加
 
-    def dfs(self, root, value):
-        if root:
-            self.dfs(root.left, value*10 + root.val)
-            self.dfs(root.right, value*10 + root.val)
+        time: O(N), since one has to visit each node
+        space: O(H), up to O(H) to keep the stack, H is tree height
+        '''
+        def dfs(root, val):
+            if not root:
+                return 0
             if not root.left and not root.right:
-                self.res += value*10 +root.val
+                return val * 10 + root.val
+            left = dfs(root.left, val*10+root.val)
+            right = dfs(root.right, val*10+root.val)
+            return left + right
+
+        return dfs(root, 0)
 
         '''method2
         BFS solution
         思想都是累加，当一个节点为叶子节点的时候，res+= value。
         非叶子节点的时候，不断向下找叶子节点
+        
+        time: O(N)
+        space: O(H)
         '''
-        # if not root:
-        #     return 0
-        # stack = [(root, root.val)]
-        # res = 0
-        # while stack:
-        #     root, s=stack.pop()
-        #     if not root.left and not root.right:
-        #         res += s
-        #     if root.left:
-        #         stack.append((root.left, s*10+root.left.val))
-        #     if root.right:
-        #         stack.append((root.right, s*10+root.right.val))
-        # return res
-
-        '''method3 
-        similar to method 1
-        '''
-
-        return 0 if not root else self.sum_nums(root, 0)
-
-    def sum_nums(self, root, n):
-        if not root.left and not root.right:
-            return 10 * n + root.val
+        if not root:
+            return 0
+        stack = [(root, root.val)]
         res = 0
-        if root.left:
-            res += self.sum_nums(root.left, 10*n + root.val)
-        if root.right:
-            res += self.sum_nums(root.right, 10*n + root.val)
+        while stack:
+            root, s=stack.pop()
+            if not root.left and not root.right:
+                res += s
+            if root.left:
+                stack.append((root.left, s*10+root.left.val))
+            if root.right:
+                stack.append((root.right, s*10+root.right.val))
         return res

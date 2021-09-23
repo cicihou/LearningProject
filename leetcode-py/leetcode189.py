@@ -5,9 +5,8 @@ class Solution:
 
         method 1 Brutal Force
         """
-        for i in range(k):
-            val = nums.pop()
-            nums.insert(0, val)
+        for i in range(k % len(nums)):
+            nums.insert(0, nums.pop())
 
         '''
         method 2
