@@ -22,14 +22,14 @@ class Solution:
         res = []
         path = []
 
-        def dfs(path, root, targetSum):
+        def backtrack(path, root, targetSum):
             if root:
                 path.append(root.val)
                 targetSum -= root.val
                 if not root.left and not root.right and targetSum == 0:
                     res.append(path[:])
-                dfs(path, root.left, targetSum)
-                dfs(path, root.right, targetSum)
+                backtrack(path, root.left, targetSum)
+                backtrack(path, root.right, targetSum)
                 path.pop()  # 回溯很重要的一个点：状态撤销
-        dfs(path, root, targetSum)
+        backtrack(path, root, targetSum)
         return res

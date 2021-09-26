@@ -5,10 +5,8 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        if nums:
-            nums.sort(reverse=True)
-            return nums[k-1]
-        return 0
+        nums.sort()
+        return nums[len(nums)-k]
 
         '''
         heap
@@ -24,6 +22,16 @@ class Solution(object):
             if nums[index] > h[0]:
                 heapq.heapreplace(h, nums[index])
         return h[0]
+
+        '''
+        method 3 heap 的更加简单的写法
+        '''
+        heapify(nums)
+        x = len(nums) - k
+        for _ in range(x):
+            heappop(nums)
+        else:
+            return heappop(nums)
 
 
 # 第kth大，非去重

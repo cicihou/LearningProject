@@ -26,10 +26,9 @@ class Solution:
         cur = root
         dfs(root, 1)
         for level in res:
-            if level:
-                if len(level) > 1:
-                    for i in range(1, len(level)):
-                        level[i-1].next = level[i]
+            if level and len(level) > 1:
+                for i in range(1, len(level)):
+                    level[i-1].next = level[i]
         return cur
 
         '''

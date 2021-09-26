@@ -49,6 +49,9 @@ class TreeNode:
     1  : {1: [3]}
     2  : {2: [7]}
 }
+
+time: O(NlogN)，其中 N 为树的节点总数
+space: O(N)
 '''
 
 class Solution:
