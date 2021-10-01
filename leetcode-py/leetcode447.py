@@ -32,7 +32,8 @@ class Solution:
         # return res
 
         ''' method 2
-        time O(n^2)
+        time: O(N^2)
+        space: O(N)
         '''
         def get_distance(x, y):
             # 只需距离相等，不需要精确的距离，因此不开平方根了
@@ -45,13 +46,7 @@ class Solution:
             counter = {}
             for j in range(len(points)):
                 dis = get_distance(points[i], points[j])
-                if dis in counter:
-                    counter[dis] += 1
-                else:
-                    counter[dis] = 1
-                # 代表我自己很反感下面这种一行的「优化」，虽然行数减少，但是可读性变差了
-                # sometimes people just believe less is simple and better, I don't like it
-                # counter[dis] = counter.get(dis, 0) + 1
+                counter[dis] = counter.get(dis, 0) + 1
 
             for c in counter.values():
                 res += c * (c-1)
