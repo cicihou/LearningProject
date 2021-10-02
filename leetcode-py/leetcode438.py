@@ -11,7 +11,12 @@ class Solution:
         return res
 
         ''' method 2 
-        much more faster than method 1'''
+        much more faster than method 1
+        time: O(n)
+        space: O(n)
+        
+        我们比较两个 hashmap 理论上来说应该是 O(n)，但是由于本题的 hashmap 最多只会有 26 个字母，所以是 O(1)
+        '''
         counter = Counter(p)
         res = []
 
