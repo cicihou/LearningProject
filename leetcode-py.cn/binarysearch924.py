@@ -1,7 +1,5 @@
 class Solution:
-    def minSubarray(self, nums: List[int], p: int) -> int:
-        ''' method 1 前缀和 + 同余定理
-        '''
+    def solve(self, nums, p: int) -> int:
         tar = sum(nums) % p
         dic = {0: -1}
         prefix = 0
