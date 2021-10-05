@@ -23,3 +23,29 @@ class Solution:
         for i in range(2, n+2):
             dp[i] = max(dp[i-1], dp[i-2]+nums[i-2])
         return dp[-1]
+
+
+        '''
+        method 2 memoize
+        
+        状态分解: 
+            抢当前房子; func(i+2) + nums[i]
+            抢下一个房子; func(i+1)
+        
+        time: O(n)
+        space: O(n)
+        '''
+        memo = {}
+
+        def memoize(i):
+            if i >= len(nums):
+                return 0
+
+            if i in memo:
+                return memo[i]
+
+            res = max(memoize(i+1), memoize(i+2) + nums[i])
+            memo[i] = res
+            return res
+
+        return memoize(0)

@@ -48,3 +48,27 @@ class Solution:
             for j in range(0, i+1):
                 dp[j] = min(dp[j], dp[j+1]) + triangle[i][j]
         return dp[0]
+
+        '''
+        method 3
+        DP(Bottom-up: In-place)
+        
+        time: O(n^2)
+        space: O(1)
+        自顶向下，替代更新三角形里面的值。
+        
+        interview tips: 以下情况不可 in-place modification
+            1. in multi-threaded environment
+            2. the array might need to reused later
+        '''
+        n = len(triangle)
+
+        for i in range(1, n):
+            for j in range(0, i + 1):
+                if j == 0:
+                    triangle[i][j] += triangle[i - 1][j]
+                elif j == i:
+                    triangle[i][j] += triangle[i - 1][j - 1]
+                else:
+                    triangle[i][j] += min(triangle[i - 1][j - 1], triangle[i - 1][j])
+        return min(triangle[-1])

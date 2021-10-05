@@ -9,7 +9,9 @@ class Solution:
 
         '''
         method 2
-        without 
+        
+        time: O(1), the run time depends on the number of bits in n. The input must be a binary string of length 32, thus the time complexity is O(1)
+        space: O(1), the space complexity is O(1), since no additional space is allocated
         '''
         count = 0
         while n:
