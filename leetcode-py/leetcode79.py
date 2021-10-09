@@ -5,10 +5,16 @@ class Solution:
 
         1. 遍历矩阵，若矩阵的board[i][j] 符合 word 的第一个字符，判断其回溯空间状态
             1. 回溯空间状态中，如果 word 搜索状态到了最后一个词，返回 True
-            2. 回溯空间状态中，如果 i, j 超出了 board 区域，或者 board[i][j] 不符合我们的要求，返回 False
+            2. 回溯空间状态中，如果 i, j 超出了 board 区域，或者 board[i][j] != word[count]，返回 False
             3. 将 回溯的 board[i][j] 标成空，然后搜寻四个方向的状态；注意完成搜索后还原回溯空间
             4. 返回搜索的四个方向的状态
         2. 矩阵的回溯空间状态满足要求，则认为这个字符串能够在矩阵中被找到
+
+        time: O(N * 3^L) N is the number of cells in the board and L is the length of the word.
+        我们有四个方向要探索，but further the choices are reduced into 3 (since we won't go back to where we come from)，所以只有三条分支
+        我们要在整个 board 进行这种回溯的尝试，因此是 N * 3 ^ L
+
+        space: O(L) The main consumption of the memory lies in the recursion call of the backtracking function. The maximum length of the call stack would be the length of the word. Therefore, the space complexity of the algorithm is O(L).
         '''
         m = len(board)
         n = len(board[0])
