@@ -1,5 +1,9 @@
 class Solution:
     def judgeCircle(self, moves: str) -> bool:
+        '''
+        time: O(n)
+        space: O(1)
+        '''
         up_down = 0
         left_right = 0
         for m in moves:
