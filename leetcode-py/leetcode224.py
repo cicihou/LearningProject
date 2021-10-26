@@ -12,6 +12,9 @@ class Solution:
         在遇到右括号的时候，用 res += sign * num （当前括号的数计算完毕）
         重置 num
         此时 res 表示是括号对应的值，先 * 我们之前存的符号位，然后再加上之前存的数
+
+        time: O(n)
+        space: O(n)
         '''
         stack = []
         num = 0
