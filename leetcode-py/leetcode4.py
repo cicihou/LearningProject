@@ -1,6 +1,10 @@
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        ''' method 1 '''
+        ''' method 1
+
+        time: O(m+n)，如果算上内置 sort 方法的话应该是 (m+n)*log(m+n)
+        space: O(m+n)
+        '''
         nums1.extend(nums2)
         nums1.sort()
         mid = len(nums1) // 2
@@ -12,7 +16,12 @@ class Solution:
 
         ''' method 2
         binary search
-        https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-s-114/
+        
+        code: https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn)))-solution-with-explanation
+        video: https://www.youtube.com/watch?v=LPFhl65R7ww&t=12s
+        
+        time: O(log(m+n))
+        space: O(1)
         '''
         # TODO
 
