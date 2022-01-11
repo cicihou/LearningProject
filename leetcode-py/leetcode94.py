@@ -6,7 +6,11 @@
 #         self.right = right
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        '''method 1 recursion + dfs'''
+        '''method 1 recursion + dfs
+
+        time: O(n), 2 * T(n/2) + 1, depth of recursion
+        space: O(n), number of nodes
+        '''
     #     self.res = []
     #     self.dfs(root)
     #     return self.res
@@ -21,6 +25,9 @@ class Solution:
         跟 144 同理，由于 stack FILO
         先往 stack 里面压需要后处理的 root.right
         再往 stack 里面压需要先处理的 root.left
+        
+        time: O(n)
+        space: O(1), the out put does not count towards the space complexity
         '''
         if not root: return []
         res = []
