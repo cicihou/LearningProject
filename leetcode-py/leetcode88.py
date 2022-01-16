@@ -7,14 +7,9 @@ class Solution:
         Do not return anything, modify nums1 in-place instead.
 
         two-pointer，逆向双指针，从 nums1 的尾部开始，这样无需额外的空间
-        time: O(n)
+        time: O(m+n)
         space: O(1)
         """
-        if m == 0:
-            nums1[:] = nums2
-            return
-        if n == 0:
-            return
         p1 = m - 1
         p2 = n - 1
         for i in range(len(nums1) - 1, -1, -1):
