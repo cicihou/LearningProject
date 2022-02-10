@@ -1,30 +1,36 @@
 class Solution:
     def plusOne(self, digits):
-        # 方法一
-        # 有缺陷
-        for i in range(len(digits)-1,0,-1):
-            if digits[i] < 9:
+        '''
+        method 1
+        :param digits:
+        :return:
+
+        time: O(n)
+        space: O(n), the operation in-place (i.e. on the input list itself)
+            in the worst scenario, we would allocate an intermediate space to hold the result, which contains the N+1 elements
+            hence the overall space complexity of the algorithm is O(n)
+        '''
+        for i in range(len(digits)-1, -1, -1):
+            if digits[i] == 9:
+                digits[i] = 0
+            else:
                 digits[i] += 1
                 return digits
-            else:
-                digits[i] = 0
-                if digits[i-1] == 9:
-                    digits[i-1] += 1
-        else:
-            if digits[0] == 0:
-                digits.insert(0,1)
-            if digits[0] > 9:
-                digits[0] = 0
-                digits.insert(0, 1)
-        return digits
+        return [1] + digits
 
-        # 方法二
+        '''
+        method 2 
+        python tricks
+        '''
         # num = ''.join([str(n) for n in digits])
         # number = str(int(num) + 1)
         # res = [int(n) for n in number]
         # return res
 
-        # 方法3  虽然只是抽出方法二，但是速度会提升
+        '''
+        method 3
+        tricky python to make it faster
+        '''
         # return [int(n) for n in str(int(''.join([str(n) for n in digits])) + 1)]
 
 
