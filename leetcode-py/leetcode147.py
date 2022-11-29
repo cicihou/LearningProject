@@ -28,7 +28,7 @@ class Solution:
                 初始时有序序列只有一个元素，每次将一个新的元素插入到有序序列中，有序序列的长度增加 1，直到全部元素都加入到有序序列中。
         
         time: O(n^2)
-        space: O(n)
+        space: O(1)
         
         1. 维护三个指针，dummy(虚拟头), lastSorted(指向第一个元素/头节点), cur(指向第二个元素)
         2. 遍历 cur （cur 及更之后的就是需要排序的链表）
@@ -59,3 +59,30 @@ class Solution:
             cur = lastSorted.next
 
         return dummy.next
+
+        '''
+        method 3
+        
+        insertion sort
+        官方解法
+        可以输入相同的值，相同的值节点顺序没有先后性
+        
+        time: O(n^2)
+        space: O(1)
+        '''
+        dumb = ListNode()
+        cur = head
+        while cur:
+            prev = dumb
+            while prev.next and prev.next.val < cur.val:
+                prev = prev.next
+
+            # 保存 cur.next 作为新 cur 供下次循环使用
+            nxt = cur.next
+
+            # 在 prev 后插入 cur 节点
+            cur.next = prev.next
+            prev.next = cur
+
+            cur = nxt
+        return dumb.next
